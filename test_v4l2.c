@@ -10,7 +10,9 @@
 #include <linux/videodev2.h>
 //#include <jpeglib.h>
 
-#define DEVICE_NAME "/dev/video1"
+#define DEVICE_NAME "/dev/video2"
+#define WIDTH          640            /*  */
+#define HEIGHT         480            /*  */
 
 typedef struct
 {
@@ -151,8 +153,8 @@ int init_camer_device(int fd)
     //设置摄像头采集数据格式，如设置采集数据的
     //长,宽，图像格式(JPEG,YUYV,MJPEG等格式)
     stream_fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-    stream_fmt.fmt.pix.width = 1366;
-    stream_fmt.fmt.pix.height = 768;
+    stream_fmt.fmt.pix.width = WIDTH;
+    stream_fmt.fmt.pix.height = HEIGHT;
  /* :TODO:Wednesday, May 18, 2016 10:35:35 CST:joy: YUYV->MJPEG 部分摄像头才支持 */
     stream_fmt.fmt.pix.pixelformat = /*V4L2_PIX_FMT_YUYV;// */V4L2_PIX_FMT_MJPEG;
  /* :TODO:End---  */
